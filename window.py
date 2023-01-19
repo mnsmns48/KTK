@@ -146,7 +146,7 @@ class Window:
             file.write(contract)
         self.draw_label('Договор (json файл) успешно сохранен папке Contracts/JSON', 15, 1, "W", 15, 70)
         self.draw_button("Распечатать результат", self.print_image, 16, 0, 16, 50)
-        self.draw_label('Договор готов к печати. Сохранен в папке /Contracts', 16, 1, "W", 16, 100)
+        self.draw_label('Договор готов к печати. Сохранен в папке /Contracts/', 16, 1, "W", 16, 100)
         self.draw_button("Удалить номер из БД", self.del_number, 17, 0, 17, 50)
 
     def print_image(self):
