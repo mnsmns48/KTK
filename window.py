@@ -1,9 +1,10 @@
-from tkinter import *
+from tkinter import Tk, Entry, Button, Label, Grid, Text, PhotoImage
 from tkinter.ttk import Combobox
 import json
 from load_data import templates, tariff, big_dicts
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
+
 
 data_contract = dict()
 
@@ -70,7 +71,6 @@ class Window:
         self.number_combobox = Combobox(self.root, values=values, state="readonly")
         self.number_combobox.grid(row=row, column=column)
         self.number_combobox.grid_columnconfigure(index=index, minsize=minsize)
-        self.number_combobox.current(0)
         self.number_combobox.bind("<<ComboboxSelected>>", self.get_id)
 
     def get_id(self, event):
@@ -176,7 +176,10 @@ class Window:
         self.insert_text(self.region, 1333, 522, 58)
         self.insert_text(self.town_street, 1333, 648, 58)
         self.insert_text(self.house_appt[0], 1345, 725, 58)
-        self.insert_text(self.house_appt[1], 1914, 725, 58)
+        try:
+            self.insert_text(self.house_appt[1], 1914, 725, 58)
+        except IndexError:
+            pass
         self.draw_label("Выполнено. Ошибок нет", 17, 1, "W", 17, 100)
         self.im.save(f'Contracts/{self.surname}_{value_number}.jpg')
 
